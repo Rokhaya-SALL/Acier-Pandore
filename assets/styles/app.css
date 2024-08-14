@@ -16,7 +16,7 @@
 
 .navbar-custom .form-inline .form-control {
     border-color: #6c757d; /* Bordure du champ de recherche */
-    /* Fond du champ de recherche */
+    background-color: #ffffff; /* Fond du champ de recherche */
     color: #000000; /* Texte du champ de recherche */
 }
 
