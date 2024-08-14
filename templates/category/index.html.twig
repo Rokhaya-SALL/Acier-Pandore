@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Liste des catégories
+{% endblock %}
+
+{% block body %}
+  <h1 class="display-1 text-center mb-5">Liste des catégories</h1>
+
+  <div class="d-flex flex-column align-items-center">
+    {% for category in categories %}
+      <div class="text-center card shadow-pink p-3 mb-4 bg-white rounded-custom" style="width: 40rem; margin: 1rem;">
+        <div class="card-body">
+          <h2 class="card-title h3">
+            <a href="{{ path('categorie-item', {'id': category.id}) }}" class="text-dark">{{ category.name }}</a>
+          </h2>
+        </div>
+      </div>
+    {% else %}
+      <p class="text-center">Aucune catégorie enregistrée</p>
+    {% endfor %}
+  </div>
+{% endblock %}

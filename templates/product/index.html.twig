@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Liste des produits
+{% endblock %}
+
+{% block body %}
+
+  <h1 class="display-1 text-center mb-5">Liste des produits</h1>
+
+  <div class="d-flex flex-row flex-wrap justify-content-center">
+    {% for product in products %}
+      <div class="card shadow-pink p-3 mb-4 bg-white rounded-custom" style="width: 80rem; margin: 1rem;">
+        <div class="card-body">
+          <h2 class="card-title h3">
+            <a href="{{ path('product_item', {'id': product.id}) }}" class="text-dark">{{ product.name }}</a>
+          </h2>
+          <h4 class="card-subtitle mb-2 text-muted"><strong>Prix: </strong>{{ product.price}}</h4>
+          <p class="card-text">{{ product.description}}</p>
+          <p class="card-text">{{ product.getImage() }}</p>
+        </div>
+      </div>
+    {% else %}
+      <p class="text-center">Aucun produit enregistré</p>
+    {% endfor %}
+  </div>
+{% endblock %}

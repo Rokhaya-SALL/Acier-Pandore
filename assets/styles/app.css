@@ -1,3 +1,41 @@
-body {
-    background-color: skyblue;
+/* assets/styles/app.css */
+.shadow-pink {
+    box-shadow: 0 10px 20px rgba(255, 182, 193, 0.5), 0 6px 6px rgba(255, 182, 193, 0.5);
+}
+
+.rounded-custom {
+    border-radius: 1.5rem; /* Customize the value as needed */
+}
+.navbar-rose-powdery {
+    background-color: rgba(255, 192, 203, 0.8); /* Rose powdery color */
+    backdrop-filter: blur(10px); /* Optional: keep the blur effect */
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5); /* Optional: darker shadow */
+}
+.navbar-custom {
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(255, 192, 203, 0.5); /* Rose powdery shadow */
+    transition: background-color 0.5s ease; /* Smooth transition for color change */
+}
+.navbar-rose-powdery {
+    background-color: rgba(255, 192, 203, 0.8) !important; /* Rose powdery color */
+}
+.navbar-brand {
+    color: #ffffff !important; /* Dark black color */
+}
+.nav-link {
+    color: #ffffff !important; /* White color */
+}
+.search-button {
+    background-color: rgba(255, 192, 203, 0.8); /* Rose powdery color */
+    border: none;
+}
+.card, .carousel-item {
+    box-shadow: 0 4px 8px rgba(255, 192, 203, 0.5); /* Darker rose powdery shadow */
+}
+.carousel-custom {
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensure the rounded corners are visible */
+    box-shadow: 0 4px 8px rgba(255, 192, 203, 0.5); /* Matching shadow */
 }
