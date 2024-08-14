@@ -1,41 +1,55 @@
-/* assets/styles/app.css */
-.shadow-pink {
-    box-shadow: 0 10px 20px rgba(255, 182, 193, 0.5), 0 6px 6px rgba(255, 182, 193, 0.5);
+/* Styles pour la navbar */
+.navbar-custom {
+    background-color: #ffffff; /* Couleur de fond blanche */
+    color: #000000; /* Texte noir */
+    padding: 1rem;
 }
 
-.rounded-custom {
-    border-radius: 1.5rem; /* Customize the value as needed */
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #000000; /* Texte noir */
 }
-.navbar-rose-powdery {
-    background-color: rgba(255, 192, 203, 0.8); /* Rose powdery color */
-    backdrop-filter: blur(10px); /* Optional: keep the blur effect */
-    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5); /* Optional: darker shadow */
+
+.navbar-custom .nav-link.active {
+    color: #6c757d; /* Lien actif en gris */
 }
-.navbar-custom {
-    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
-    backdrop-filter: blur(10px); /* Blur effect */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(255, 192, 203, 0.5); /* Rose powdery shadow */
-    transition: background-color 0.5s ease; /* Smooth transition for color change */
+
+.navbar-custom .form-inline .form-control {
+    border-color: #6c757d; /* Bordure du champ de recherche */
+    /* Fond du champ de recherche */
+    color: #000000; /* Texte du champ de recherche */
 }
-.navbar-rose-powdery {
-    background-color: rgba(255, 192, 203, 0.8) !important; /* Rose powdery color */
+
+.navbar-custom .form-inline .btn {
+    color: #6c757d; /* Couleur du texte du bouton */
+    border-color: #6c757d; /* Couleur de la bordure du bouton */
 }
-.navbar-brand {
-    color: #ffffff !important; /* Dark black color */
+
+.navbar-custom .navbar-toggler {
+    border-color: #6c757d; /* Couleur de la bordure du toggler */
 }
-.nav-link {
-    color: #ffffff !important; /* White color */
+
+.navbar-custom .form-inline {
+    margin-left: auto; /* Aligne la barre de recherche à droite */
 }
-.search-button {
-    background-color: rgba(255, 192, 203, 0.8); /* Rose powdery color */
-    border: none;
+
+.form-inline{
+    margin-left: auto;
 }
-.card, .carousel-item {
-    box-shadow: 0 4px 8px rgba(255, 192, 203, 0.5); /* Darker rose powdery shadow */
+
+.navbar {
+    z-index: 1000;
 }
+
 .carousel-custom {
-    border-radius: 15px; /* Rounded corners */
-    overflow: hidden; /* Ensure the rounded corners are visible */
-    box-shadow: 0 4px 8px rgba(255, 192, 203, 0.5); /* Matching shadow */
+    width: 100%; /* Le carrousel prend toute la largeur disponible */
+    height: 90vh; /* Hauteur de 60% de la hauteur de la fenêtre, ajustable selon vos préférences */
+    max-height: 600px; /* Optionnel : Limite la hauteur maximale */
+    overflow: hidden; /* Cache toute partie de l'image qui déborde */
+}
+
+.carousel-inner img {
+    width: 100%; /* Les images remplissent la largeur du carrousel */
+    height: 100%; /* Les images remplissent la hauteur définie */
+    object-fit: cover; /* Ajuste les images pour qu'elles remplissent tout l'espace sans déformation */
 }

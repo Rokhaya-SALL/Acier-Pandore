@@ -5,24 +5,28 @@
 {% endblock %}
 
 {% block body %}
-
   <h1 class="display-1 text-center mb-5">Liste des produits</h1>
 
-  <div class="d-flex flex-row flex-wrap justify-content-center">
-    {% for product in products %}
-      <div class="card shadow-pink p-3 mb-4 bg-white rounded-custom" style="width: 80rem; margin: 1rem;">
-        <div class="card-body">
-          <h2 class="card-title h3">
-            <a href="{{ path('product_item', {'id': product.id}) }}" class="text-dark">{{ product.name }}</a>
-          </h2>
-          <h4 class="card-subtitle mb-2 text-muted"><strong>Prix: </strong>{{ product.price}}</h4>
-          <p class="card-text">{{ product.description}}</p>
-          <p class="card-text"><img src="{{ asset(product.image) }}" alt="{{ product.name }}">
-</p>
+  <div class="container">
+    <div class="row">
+       {% for product in products %}
+        <div class="col-md-4 d-flex align-items-stretch mb-4">
+          <div class="card shadow-pink p-3 bg-white rounded-custom w-100">
+            <div class="card-body">
+              <h2 class="card-title h3">
+                <a href="{{ path('product_item', {'id': product.id}) }}" class="text-dark">{{ product.name }}</a>
+              </h2>
+              <h4 class="card-subtitle mb-2 text-muted"><strong>Prix: </strong>{{ product.price}}</h4>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">
+                <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid">
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    {% else %}
-      <p class="text-center">Aucun produit enregistré</p>
-    {% endfor %}
+      {% else %}
+        <p class="text-center">Aucun produit enregistré</p>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
