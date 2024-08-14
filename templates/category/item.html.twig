@@ -16,7 +16,8 @@
           </h2>
           <h4 class="card-subtitle mb-2 text-muted"><strong>Prix: </strong>{{ product.price}}</h4>
           <p class="card-text">{{ product.description}}</p>
-          <p class="card-text">{{ product.getImage() }}</p>
+          <p class="card-text"><img src="{{ asset(product.image) }}" alt="{{ product.name }}">
+</p>
         </div>
       </div>
     {% else %}
