@@ -53,3 +53,47 @@
     height: 100%; /* Les images remplissent la hauteur définie */
     object-fit: cover; /* Ajuste les images pour qu'elles remplissent tout l'espace sans déformation */
 }
+/* Style de base pour les cartes en Neumorphism */
+.card-neumorphism {
+    border-radius: 15px; /* Coins arrondis */
+    background: #e0e0e0; /* Couleur de fond légère */
+    /* box-shadow:  8px 8px 16px #bebebe, -8px -8px 16px #ffffff; Ombres Neumorphism */
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-neumorphism:hover {
+    transform: scale(1.05); /* Agrandir légèrement à l'hover */
+}
+
+.card-neumorphism img {
+    border-radius: 15px; /* Coins arrondis pour les images */
+}
+
+.card-neumorphism a {
+    text-decoration: none;
+    color: #333;
+}
+
+.card-neumorphism a:hover {
+    color: #007bff; /* Change la couleur du texte au hover */
+}
+.display-1{
+    font-size: 35px;
+}
+
+h1, h2 {
+    font-family: 'Times New Roman', sans-serif;
+    font-weight: 700;
+}
+
+p, a, .nav-link {
+    font-family: 'Times New Roman', sans-serif;
+    font-weight: 400;
+}
+
+.card-title{
+    font-size: 20px;
+}
+.card-subtitle{
+    font-size: 18px;
+}

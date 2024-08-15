@@ -9,7 +9,7 @@
 
   <div class="d-flex flex-column align-items-center">
     {% for category in categories %}
-      <div class="text-center card shadow-pink p-3 mb-4 bg-white rounded-custom" style="width: 40rem; margin: 1rem;">
+      <div class="text-center card-neumorphism p-3 mb-4 bg-white rounded-custom" style="width: 40rem; margin: 1rem;">
         <div class="card-body">
           <h2 class="card-title h3">
             <a href="{{ path('categorie-item', {'id': category.id}) }}" class="text-dark">{{ category.name }}</a>

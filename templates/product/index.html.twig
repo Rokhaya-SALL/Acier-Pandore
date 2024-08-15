@@ -5,22 +5,21 @@
 {% endblock %}
 
 {% block body %}
-  <h1 class="display-1 text-center mb-5">Liste des produits</h1>
+  <h2 class="display-1 text-center mb-5">Liste des produits</h2>
 
   <div class="container">
     <div class="row">
        {% for product in products %}
-        <div class="col-md-4 d-flex align-items-stretch mb-4">
-          <div class="card shadow-pink p-3 bg-white rounded-custom w-100">
+        <div class="col-md-3 d-flex align-items-stretch mb-4">
+          <div class="card-neumorphism p-3 bg-white rounded-custom w-100">
             <div class="card-body">
-              <h2 class="card-title h3">
-                <a href="{{ path('product_item', {'id': product.id}) }}" class="text-dark">{{ product.name }}</a>
-              </h2>
-              <h4 class="card-subtitle mb-2 text-muted"><strong>Prix: </strong>{{ product.price}}</h4>
-              <p class="card-text">{{ product.description }}</p>
               <p class="card-text">
                 <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid">
               </p>
+              <h3 class="card-title h5">
+                <a href="{{ path('product_item', {'id': product.id}) }}" class="text-dark">{{ product.name }}</a>
+              </h3>
+              <h6 class="card-subtitle mb-2 text-muted"><strong>Prix: </strong>{{ product.price}}<strong>€ </strong></h6>
             </div>
           </div>
         </div>

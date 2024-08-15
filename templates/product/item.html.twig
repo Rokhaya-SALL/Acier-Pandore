@@ -5,9 +5,19 @@
 {% endblock %}
 
 {% block body %}
-  <h1 class="display-4">{{ product.name }}</h1>
-  <p class="text-muted"><strong>Prix: </strong>{{ product.price}}</p>
-  <p class="card-text">{{ product.description}}</p>
-  <p class="card-text"><img src="{{ asset(product.image) }}" alt="{{ product.name }}">
-</p>        
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Image à gauche -->
+      <div class="col-md-6 d-flex align-items-center">
+        <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid rounded">
+      </div>
+
+      <!-- Texte à droite -->
+      <div class="col-md-6">
+        <h1 class="display-4">{{ product.name }}</h1>
+        <p class="text-muted"><strong>Prix: </strong>{{ product.price }}<strong>€</strong></p>
+        <p class="card-text">{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
 {% endblock %}
