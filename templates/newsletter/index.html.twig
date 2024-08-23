@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Newsletter{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Newsletter</h1>
+
+        {{ form_start(newsletterForm) }}
+            {{ form_row(newsletterForm.email) }}
+            {{ form_row(newsletterForm.category) }}
+            {{ form_row(newsletterForm.submit) }}
+        {{ form_end(newsletterForm) }}
+    </div>
+{% endblock %}

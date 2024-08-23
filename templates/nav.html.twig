@@ -15,6 +15,12 @@
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ path('product_list') }}">Liste des produits</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ path('newsletter_subscribe') }}">Newsletter</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link text-white" href="{{ path('product_add') }}">Ajouter un produit</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 ms-auto" method="get" action="{{ path('product_list') }}">
             <input class="form-control me-2" type="search" placeholder="Rechercher un bijou" aria-label="Search" name="search">

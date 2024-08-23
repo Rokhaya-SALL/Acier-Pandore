@@ -24,9 +24,16 @@ class Category
     #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'category')]
     private Collection $products;
 
+    /**
+     * @var Collection<int, NewsletterEmail>
+     */
+    #[ORM\OneToMany(targetEntity: NewsletterEmail::class, mappedBy: 'category')]
+    private Collection $newsletterEmails;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->newsletterEmails = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -70,6 +77,36 @@ class Category
             // set the owning side to null (unless already changed)
             if ($product->getCategory() === $this) {
                 $product->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, NewsletterEmail>
+     */
+    public function getNewsletterEmails(): Collection
+    {
+        return $this->newsletterEmails;
+    }
+
+    public function addNewsletterEmail(NewsletterEmail $newsletterEmail): static
+    {
+        if (!$this->newsletterEmails->contains($newsletterEmail)) {
+            $this->newsletterEmails->add($newsletterEmail);
+            $newsletterEmail->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNewsletterEmail(NewsletterEmail $newsletterEmail): static
+    {
+        if ($this->newsletterEmails->removeElement($newsletterEmail)) {
+            // set the owning side to null (unless already changed)
+            if ($newsletterEmail->getCategory() === $this) {
+                $newsletterEmail->setCategory(null);
             }
         }
 
