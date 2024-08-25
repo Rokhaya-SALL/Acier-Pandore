@@ -9,11 +9,11 @@
 
   <div class="container">
     <div class="row">
-       {% for product in products %}
+      {% for product in products %}
         <div class="col-md-3 d-flex align-items-stretch mb-4">
           <div class="card-neumorphism p-3 bg-white rounded-custom w-100">
             <div class="card-body">
-             {% if product.image %}
+              {% if product.image %}
                 <p class="card-text text-center">
                   {% if product.image starts with 'images/' %}
                     <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid rounded-custom">
@@ -22,10 +22,19 @@
                   {% endif %}
                 </p>
               {% endif %}
+              
               <h3 class="card-title h5">
                 <a href="{{ path('product_item', {'id': product.id}) }}" class="text-dark">{{ product.name }}</a>
               </h3>
               <h6 class="card-subtitle mb-2 text-muted"><strong>Prix: </strong>{{ product.price}}<strong>€ </strong></h6>
+
+              <div class="d-flex justify-content-between">
+                <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-primary btn-sm">Modifier</a>
+                <form method="post" action="{{ path('product_delete', {'id': product.id}) }}" style="display:inline-block;">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="btn btn-danger btn-sm ml-2">Supprimer</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

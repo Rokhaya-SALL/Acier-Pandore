@@ -20,7 +20,7 @@ class ProductType extends AbstractType
             ->add('description')
             ->add('price')
             ->add('image', FileType::class, [
-                'label' => 'Product Image (JPEG, PNG file)',
+                'label' => 'Image du Produit (JPEG, PNG, JPG file)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -29,14 +29,15 @@ class ProductType extends AbstractType
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
+                            'image/jpg',
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid image file (JPEG/PNG)',
+                        'mimeTypesMessage' => 'Please upload a valid image file (JPEG/PNG/JPG)',
                     ])
                 ],
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-'choice_label' => 'name',
+                'choice_label' => 'name',
             ])
         ;
     }

@@ -22,6 +22,17 @@ class ProductController extends AbstractController
         ]);
     }
 
+    #[Route('/product/update', name: 'product_update')]
+    public function updateList(ProductRepository $productRepository, Request $request): Response
+    {
+        $search = $request->query->get('search', '');
+        $products = $productRepository->findByTitleOrDescription($search);
+
+        return $this->render('new_product/update.html.twig', [
+            'products' => $products,
+        ]);
+    }
+
     #[Route('/product/{id}', name: 'product_item')]
     public function item(Product $product): Response
     {

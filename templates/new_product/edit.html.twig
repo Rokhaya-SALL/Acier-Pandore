@@ -1,20 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter un produit{% endblock %}
+{% block title %}Modifier un produit{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-        <h1 class="mb-4">Ajouter un produit</h1>
+   <div class="container mt-5">
+        <h1 class="mb-4">Modifier un produit</h1>
 
-        {% if product.image is not null %}
-        <div class="mb-4 text-center">
-            <img
-                src="{{ '/uploads/product/images' ~ product.image }}"
-                alt="{{ product.name }}"
-                class="img-fluid rounded mb-3"
-            />
-        </div>
-        {% endif %}
+        
 
         {{ form_start(productForm) }}
             <div class="form-group">
@@ -47,7 +39,7 @@
                 {{ form_errors(productForm.category) }}
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
+            <button type="submit" class="btn btn-primary mt-3">Modifier</button>
         {{ form_end(productForm) }}
     </div>
 {% endblock %}

@@ -9,14 +9,26 @@
     <div class="row">
       <!-- Image à gauche -->
       <div class="col-md-6 d-flex align-items-center">
-        <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid rounded">
+        <div class="card-neumorphisme p-3 bg-white rounded-custom w-100">
+          {% if product.image %}
+            <p class="card-text text-center">
+              {% if product.image starts with 'images/' %}
+                <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid rounded-custom">
+              {% else %}
+                <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}" class="img-fluid rounded-custom">
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
       </div>
 
       <!-- Texte à droite -->
       <div class="col-md-6">
-        <h1 class="display-4">{{ product.name }}</h1>
-        <p class="text-muted"><strong>Prix: </strong>{{ product.price }}<strong>€</strong></p>
-        <p class="card-text">{{ product.description }}</p>
+        <div class="card-neumorphisme p-4 bg-white rounded-custom">
+          <h1 class="display-4">{{ product.name }}</h1>
+          <p class="text-muted"><strong>Prix: </strong>{{ product.price }}<strong>€</strong></p>
+          <p class="card-text">{{ product.description }}</p>
+        </div>
       </div>
     </div>
   </div>
