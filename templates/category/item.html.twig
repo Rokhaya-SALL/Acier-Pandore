@@ -13,9 +13,15 @@
         <div class="col-md-3 d-flex align-items-stretch mb-4">
           <div class="card-neumorphism p-3 bg-white rounded-custom w-100">
             <div class="card-body">
-              <p class="card-text">
-                <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid">
-              </p>
+             {% if product.image %}
+                <p class="card-text text-center">
+                  {% if product.image starts with 'images/' %}
+                    <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid rounded-custom">
+                  {% else %}
+                    <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}" class="img-fluid rounded-custom">
+                  {% endif %}
+                </p>
+              {% endif %}
               <h3 class="card-title">
                 <a href="{{ path('product_item', {'id': product.id}) }}" class="text-dark">{{ product.name }}</a>
               </h3>
