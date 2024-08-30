@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\NewsletterEmail;
 use App\Form\NewsletterType;
+use App\Newsletter\MailConfirmation;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NewsletterController extends AbstractController
 {
+    
     #[Route('/newsletter/subscribe', name: "newsletter_subscribe", methods: ["GET", "POST"])]
     public function newsletterSubscribe(
         Request $request,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        MailConfirmation $mailConfirmation
     ): Response {
         $newsletter = new NewsletterEmail();
         $form = $this->createForm(NewsletterType::class, $newsletter);
@@ -23,23 +26,22 @@ class NewsletterController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Check if the email already exists
-            $existingEmail = $em->getRepository(NewsletterEmail::class)->findOneBy(['email' => $newsletter->getEmail()]);
+            $em->persist($newsletter);
+            $em->flush();
 
-            if ($existingEmail) {
-                $this->addFlash('error', 'Cet email est déjà inscrit à notre newsletter.');
-            } else {
-                $em->persist($newsletter);
-                $em->flush();
+            $mailConfirmation->send($newsletter);
 
-                return $this->redirectToRoute('newsletter_confirm');
-            }
+            // Créer et envoyer l'email de confirmation
+           
+
+            return $this->redirectToRoute('newsletter_confirm');
         }
 
         return $this->render('newsletter/index.html.twig', [
-            'newsletterForm' => $form->createView(),
+            'newsletterForm' => $form,
         ]);
     }
+
 
     #[Route('/newsletter/thanks', name: "newsletter_confirm")]
     public function newsletterConfirm(): Response

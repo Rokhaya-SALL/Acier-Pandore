@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\NewsletterEmailRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: NewsletterEmailRepository::class)]
+#[UniqueEntity('email', message:"Cet email existe déjà")]
 class NewsletterEmail
 {
     #[ORM\Id]
@@ -14,6 +17,7 @@ class NewsletterEmail
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Email(message: "L'adresse email renseignée est invalide")]
     private ?string $email = null;
 
     #[ORM\ManyToOne(inversedBy: 'newsletterEmails')]

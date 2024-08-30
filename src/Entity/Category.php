@@ -36,6 +36,8 @@ class Category
         $this->newsletterEmails = new ArrayCollection();
     }
 
+    
+
     public function getId(): ?int
     {
         return $this->id;
