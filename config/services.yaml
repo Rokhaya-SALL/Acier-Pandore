@@ -7,7 +7,7 @@ parameters:
 # config/services.yaml
 parameters:
     images_directory: '%kernel.project_dir%/public/uploads/images'
-    app.admin_email: "no-reply@rokhaya.com"
+    app.admin_email: "no-reply@acier-pandore.com"
 
 services:
     # default configuration for services in *this* file

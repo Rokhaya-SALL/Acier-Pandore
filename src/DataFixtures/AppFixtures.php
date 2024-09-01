@@ -4,12 +4,20 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use App\Entity\Product;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 
 class AppFixtures extends Fixture
 {
     private const CATEGORIES = ['Bague', 'Bracelet', 'Collier', 'Boucle d\'oreille'];
+
+    public function __construct(
+        private UserPasswordHasherInterface $hasher
+    ) {
+    }
 
     public function load(ObjectManager $manager): void
     {
@@ -56,6 +64,26 @@ class AppFixtures extends Fixture
 
             $manager->persist($product);
         }
+
+        // --- USERS ---------------------------------------------------
+        $admin = new User();
+        $admin
+            ->setEmail("admin@acier-pandore.com")
+            ->setRoles(["ROLE_ADMIN"])
+            ->setPassword(
+                $this->hasher->hashPassword($admin, "admin1234")
+            );
+        
+        $manager->persist($admin);
+
+        $user = new User();
+        $user
+            ->setEmail("user@test.com")
+            ->setPassword(
+                $this->hasher->hashPassword($user, "test1234")
+            );
+
+        $manager->persist($user);
 
         $manager->flush();
     }

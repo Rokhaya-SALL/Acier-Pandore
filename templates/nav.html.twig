@@ -25,7 +25,18 @@
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ path('newsletter_subscribe') }}">Newsletter</a>
             </li>
-            
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="nav-item">
+                    <span class="nav-link text-white">{{ app.user.email }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ path('app_logout') }}">Déconnexion</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+            {% endif %}
         </ul>
         <form class="form-inline my-2 my-lg-0 ms-auto" method="get" action="{{ path('product_list') }}">
             <input class="form-control me-2" type="search" placeholder="Rechercher un bijou" aria-label="Search" name="search">
