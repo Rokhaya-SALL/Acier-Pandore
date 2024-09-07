@@ -1,4 +1,5 @@
 <?php
+// src/Controller/RegistrationController.php
 
 namespace App\Controller;
 
@@ -6,10 +7,11 @@ use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -21,20 +23,28 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Encoder le mot de passe
             $plainPassword = $form->get('plainPassword')->getData();
-            $encodedPassword = $passwordHasher->hashPassword($user, $plainPassword);
-            $user->setPassword($encodedPassword);
+            $confirmPassword = $form->get('confirmPassword')->getData();
 
-            // Enregistrer l'utilisateur en base de données
-            $entityManager->persist($user);
-            $entityManager->flush();
+            if ($plainPassword === $confirmPassword) {
+                // Hash the password
+                $user->setPassword(
+                    $passwordHasher->hashPassword(
+                        $user,
+                        $plainPassword
+                    )
+                );
 
-            // Ajouter un message flash de succès
-            $this->addFlash('success', 'Vous vous êtes inscrit avec succès !');
+                // Save the user
+                $entityManager->persist($user);
+                $entityManager->flush();
 
-            // Rediriger après l'inscription réussie
-            return $this->redirectToRoute('app_login'); // Remplacez 'app_login' par la route de votre page de connexion
+                // Redirect to homepage or any other page
+                return $this->redirectToRoute('homepage');
+            } else {
+                // Handle password mismatch
+                $form->get('confirmPassword')->addError(new FormError('Les mots de passe ne correspondent pas.'));
+            }
         }
 
         return $this->render('registration/index.html.twig', [

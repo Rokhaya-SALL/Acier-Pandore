@@ -39,7 +39,7 @@ class NewProductController extends AbstractController
                     );
 
                     if ($product->getImage() !== null) {
-                        $oldImagePath = __DIR__ . '/../../public/uploads/product/' . $product->getImage();
+                        $oldImagePath = __DIR__ . '/../../public/uploads/images/' . $product->getImage();
                         if (file_exists($oldImagePath)) {
                             unlink($oldImagePath);
                         }

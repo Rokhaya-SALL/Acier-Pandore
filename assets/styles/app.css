@@ -97,3 +97,15 @@ p, a, .nav-link {
 .card-subtitle{
     font-size: 18px;
 }
+
+/* Bordures noires pour la barre de recherche */
+.search-bar-border-black {
+    border: 1px solid black;
+    color: black;
+}
+
+/* Bouton de recherche avec bordure et texte noirs */
+.search-button-border-black {
+    border: 1px solid black;
+    color: black;
+}

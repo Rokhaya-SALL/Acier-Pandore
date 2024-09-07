@@ -1,8 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon Profil{% endblock %}
+{% block title %}
+  Mon Profil - {{ app.user ? app.user.email : 'Utilisateur non connecté' }}
+{% endblock %}
 
 {% block body %}
-    <h1>Mon Profil</h1>
-    <p>Bienvenue, {{ app.user.email }}!</p>
+<div class="container mt-5">
+    <div class="row">
+        {% if app.user %}
+            <!-- Informations du profil -->
+            <div class="col-md-6 mb-4">
+                <div class="card p-4 bg-light border rounded-custom">
+                    <h1 class="display-5">Profil de {{ app.user.prenom }}</h1>
+                    <p><strong>Email :</strong> {{ app.user.email }}</p>
+                    <p><strong>Adresse :</strong> {{ app.user.adresse }}</p>
+                    <p><strong>Ville :</strong> {{ app.user.ville }}</p>
+                    <p><strong>Code postal :</strong> {{ app.user.codePostal }}</p>
+                    {# Vous pouvez ajouter d'autres informations ici si nécessaire. #}
+                </div>
+            </div>
+
+            <!-- Actions sur le compte -->
+            <div class="col-md-6 mb-4">
+                <div class="card p-4 bg-light border rounded-custom">
+                    <h2 class="text-center">Actions du compte</h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{{ path('edit_profile') }}" class="text-primary">Modifier le profil</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ path('change_password') }}" class="text-primary">Changer le mot de passe</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ path('order_history') }}" class="text-primary">Historique des commandes</a>
+                        </li>
+                        <li class="list-group-item text-center">
+                            <a href="{{ path('app_logout') }}" class="btn btn-outline-dark text-black w-100">Se déconnecter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-warning text-center">
+                    <h2>Vous n'êtes pas connecté !</h2>
+                    <p>Veuillez <a href="{{ path('app_login') }}">vous connecter</a> pour accéder à votre profil.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

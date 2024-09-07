@@ -20,19 +20,24 @@ class ProductCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $product = $this->getContext()->getEntity()->getInstance();
+
+        // Créez le champ d'image avec une configuration de base
         $imageField = ImageField::new('image')
-            ->setBasePath('/uploads/images')
-            ->setUploadDir('public/uploads/images')
             ->setRequired(false)
             ->setFormTypeOptions(['required' => false]);
 
-        if ($pageName === Crud::PAGE_EDIT || $pageName === Crud::PAGE_DETAIL) {
-            $product = $this->getContext()->getEntity()->getInstance();
-            if ($product && strpos($product->getImage(), 'images/') === 0) {
-                $imageField->setBasePath('/assets'); // Ajuste le chemin pour les images des fixtures
-            }
+        // Détermine le chemin de base en fonction de l'origine de l'image
+        if ($product && strpos($product->getImage(), 'images/') === 0) {
+            // Image ajoutée manuellement dans le dossier 'assets/images'
+            $imageField->setBasePath('/assets/images');
+        } else {
+            // Image téléversée par l'utilisateur dans le dossier 'uploads/images'
+            $imageField->setBasePath('/uploads/images')
+                       ->setUploadDir('public/uploads/images');
         }
 
+        // Retourne la configuration des champs
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name', 'Nom'),

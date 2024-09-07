@@ -36,7 +36,10 @@ class Category
         $this->newsletterEmails = new ArrayCollection();
     }
 
-    
+    public function __tostring(){
+        
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
