@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,11 +26,20 @@ class ProductController extends AbstractController
     #[Route('/product/update', name: 'product_update')]
     public function updateList(ProductRepository $productRepository, Request $request): Response
     {
+        $product = new Product();
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Save product logic here (e.g. using $productRepository)
+        }
+
         $search = $request->query->get('search', '');
         $products = $productRepository->findByTitleOrDescription($search);
 
         return $this->render('new_product/update.html.twig', [
             'products' => $products,
+            'form' => $form->createView(),
         ]);
     }
 

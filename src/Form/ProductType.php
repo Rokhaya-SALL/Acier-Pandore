@@ -22,7 +22,7 @@ class ProductType extends AbstractType
                 'label' => 'Image du Produit (JPEG, PNG, JPG file)',
                 'required' => false,
                 'delete_label' => 'Supprimer l\'image',
-                'download_link' => true,
+                
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,

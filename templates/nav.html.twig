@@ -16,11 +16,19 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ path('categories-list') }}">Liste des catégories</a>
                     <a class="dropdown-item" href="{{ path('product_list') }}">Liste des produits</a>
+
+                    {# Les liens "Ajouter" et "Modifier" sont visibles uniquement pour les administrateurs #}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="dropdown-item" href="{{ path('product_add') }}">Ajouter un produit</a>
+                        <a class="dropdown-item" href="{{ path('product_update') }}">Modifier un produit</a>
+                    {% endif %}
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-black" href="{{ path('newsletter_subscribe') }}">Newsletter</a>
             </li>
+
+            {# Gestion des liens en fonction de l'authentification #}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
@@ -41,6 +49,7 @@
                 </li>
             {% endif %}
         </ul>
+
         <form class="form-inline my-2 my-lg-0 ms-auto" method="get" action="{{ path('product_list') }}">
             <input class="form-control me-2 search-bar-border-black" type="search" placeholder="Rechercher un bijou" aria-label="Search" name="search">
             <button class="btn btn-outline-dark text-black search-button-border-black" type="submit">Recherche</button>

@@ -6,7 +6,15 @@
    <div class="container mt-5">
         <h1 class="mb-4">Modifier un produit</h1>
 
-        
+        {% if product.image %}
+        <div class="mb-4 text-center">
+            {% if product.image starts with 'images/' %}
+                <img src="{{ asset(product.image) }}" alt="{{ product.name }}" class="img-fluid rounded mb-3">
+            {% else %}
+                <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}" class="img-fluid rounded mb-3">
+            {% endif %}
+        </div>
+        {% endif %}
 
         {{ form_start(productForm) }}
             <div class="form-group">
@@ -28,9 +36,9 @@
             </div>
 
             <div class="form-group">
-                {{ form_label(productForm.image) }}
-                {{ form_widget(productForm.image, {'attr': {'class': 'form-control-file'}}) }}
-                {{ form_errors(productForm.image) }}
+                {{ form_label(productForm.imageFile) }}
+                {{ form_widget(productForm.imageFile, {'attr': {'class': 'form-control-file'}}) }}
+                {{ form_errors(productForm.imageFile) }}
             </div>
 
             <div class="form-group">
