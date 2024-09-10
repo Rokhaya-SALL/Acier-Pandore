@@ -20,10 +20,10 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('prenom', TextType::class, [
+            ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
             ])
-            ->add('nom', TextType::class, [
+            ->add('lastName', TextType::class, [
                 'label' => 'Nom',
             ])
             ->add('email', EmailType::class, [
@@ -31,33 +31,33 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('plainPassword', PasswordType::class, [
                 'label' => 'Mot de passe',
-                'mapped' => false, // Ce champ n'est pas lié à l'entité User
+                'mapped' => false,
                 'required' => true,
                 'attr' => ['placeholder' => '••••••••']
             ])
             ->add('confirmPassword', PasswordType::class, [
                 'label' => 'Confirmez le mot de passe',
-                'mapped' => false, // Ce champ n'est pas lié à l'entité User
+                'mapped' => false,
                 'required' => true,
                 'attr' => ['placeholder' => '••••••••']
             ])
-            ->add('adresse', TextType::class, [
+            ->add('address', TextType::class, [
                 'label' => 'Adresse',
                 'required' => false,
             ])
-            ->add('ville', TextType::class, [
+            ->add('city', TextType::class, [
                 'label' => 'Ville',
                 'required' => false,
             ])
-            ->add('codePostal', TextType::class, [
+            ->add('postalCode', TextType::class, [
                 'label' => 'Code Postal',
                 'required' => false,
             ])
-            ->add('pays', TextType::class, [
+            ->add('country', TextType::class, [
                 'label' => 'Pays',
                 'required' => false,
             ])
-            ->add('telephone', TextType::class, [
+            ->add('phone', TextType::class, [
                 'label' => 'Téléphone',
                 'required' => false,
             ]);

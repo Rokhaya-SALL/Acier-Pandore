@@ -27,7 +27,7 @@ class RegistrationController extends AbstractController
             $confirmPassword = $form->get('confirmPassword')->getData();
 
             if ($plainPassword === $confirmPassword) {
-                // Hash the password
+                
                 $user->setPassword(
                     $passwordHasher->hashPassword(
                         $user,
@@ -35,14 +35,14 @@ class RegistrationController extends AbstractController
                     )
                 );
 
-                // Save the user
+               
                 $entityManager->persist($user);
                 $entityManager->flush();
 
-                // Redirect to homepage or any other page
+              
                 return $this->redirectToRoute('homepage');
             } else {
-                // Handle password mismatch
+           
                 $form->get('confirmPassword')->addError(new FormError('Les mots de passe ne correspondent pas.'));
             }
         }

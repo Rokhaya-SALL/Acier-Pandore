@@ -21,15 +21,15 @@
             {{ form_errors(registrationForm) }}
 
             <div class="form-group mb-3">
-              {{ form_label(registrationForm.prenom, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
-              {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Jean'}}) }}
-              {{ form_errors(registrationForm.prenom) }}
+              {{ form_label(registrationForm.firstName, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.firstName, {'attr': {'class': 'form-control', 'placeholder': 'Jean'}}) }}
+              {{ form_errors(registrationForm.firstName) }}
             </div>
 
             <div class="form-group mb-3">
-              {{ form_label(registrationForm.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
-              {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control', 'placeholder': 'Dupont'}}) }}
-              {{ form_errors(registrationForm.nom) }}
+              {{ form_label(registrationForm.lastName, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.lastName, {'attr': {'class': 'form-control', 'placeholder': 'Dupont'}}) }}
+              {{ form_errors(registrationForm.lastName) }}
             </div>
 
             <div class="form-group mb-3">
@@ -51,33 +51,33 @@
             </div>
 
             <div class="form-group mb-3">
-              {{ form_label(registrationForm.adresse, 'Adresse', {'label_attr': {'class': 'form-label'}}) }}
-              {{ form_widget(registrationForm.adresse, {'attr': {'class': 'form-control', 'placeholder': '123 Rue Exemple'}}) }}
-              {{ form_errors(registrationForm.adresse) }}
+              {{ form_label(registrationForm.address, 'Adresse', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.address, {'attr': {'class': 'form-control', 'placeholder': '123 Rue Exemple'}}) }}
+              {{ form_errors(registrationForm.address) }}
             </div>
 
             <div class="form-group mb-3">
-              {{ form_label(registrationForm.ville, 'Ville', {'label_attr': {'class': 'form-label'}}) }}
-              {{ form_widget(registrationForm.ville, {'attr': {'class': 'form-control', 'placeholder': 'Paris'}}) }}
-              {{ form_errors(registrationForm.ville) }}
+              {{ form_label(registrationForm.city, 'Ville', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.city, {'attr': {'class': 'form-control', 'placeholder': 'Paris'}}) }}
+              {{ form_errors(registrationForm.city) }}
             </div>
 
             <div class="form-group mb-3">
-              {{ form_label(registrationForm.codePostal, 'Code Postal', {'label_attr': {'class': 'form-label'}}) }}
-              {{ form_widget(registrationForm.codePostal, {'attr': {'class': 'form-control', 'placeholder': '75001'}}) }}
-              {{ form_errors(registrationForm.codePostal) }}
+              {{ form_label(registrationForm.postalCode, 'Code Postal', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.postalCode, {'attr': {'class': 'form-control', 'placeholder': '75001'}}) }}
+              {{ form_errors(registrationForm.postalCode) }}
             </div>
 
             <div class="form-group mb-3">
-              {{ form_label(registrationForm.pays, 'Pays', {'label_attr': {'class': 'form-label'}}) }}
-              {{ form_widget(registrationForm.pays, {'attr': {'class': 'form-control', 'placeholder': 'France'}}) }}
-              {{ form_errors(registrationForm.pays) }}
+              {{ form_label(registrationForm.country, 'Pays', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.country, {'attr': {'class': 'form-control', 'placeholder': 'France'}}) }}
+              {{ form_errors(registrationForm.country) }}
             </div>
 
             <div class="form-group mb-3">
-              {{ form_label(registrationForm.telephone, 'Téléphone', {'label_attr': {'class': 'form-label'}}) }}
-              {{ form_widget(registrationForm.telephone, {'attr': {'class': 'form-control', 'placeholder': '+33 1 23 45 67 89'}}) }}
-              {{ form_errors(registrationForm.telephone) }}
+              {{ form_label(registrationForm.phone, 'Téléphone', {'label_attr': {'class': 'form-label'}}) }}
+              {{ form_widget(registrationForm.phone, {'attr': {'class': 'form-control', 'placeholder': '+33 1 23 45 67 89'}}) }}
+              {{ form_errors(registrationForm.phone) }}
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-3">

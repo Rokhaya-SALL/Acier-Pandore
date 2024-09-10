@@ -11,11 +11,11 @@
             <!-- Informations du profil -->
             <div class="col-md-6 mb-4">
                 <div class="card p-4 bg-light border rounded-custom">
-                    <h1 class="display-5">Profil de {{ app.user.prenom }}</h1>
+                    <h1 class="display-5">Profil de {{ app.user.firstName }}</h1>
                     <p><strong>Email :</strong> {{ app.user.email }}</p>
-                    <p><strong>Adresse :</strong> {{ app.user.adresse }}</p>
-                    <p><strong>Ville :</strong> {{ app.user.ville }}</p>
-                    <p><strong>Code postal :</strong> {{ app.user.codePostal }}</p>
+                    <p><strong>Adresse :</strong> {{ app.user.address }}</p>
+                    <p><strong>Ville :</strong> {{ app.user.city }}</p>
+                    <p><strong>Code postal :</strong> {{ app.user.postalCode }}</p>
                     {# Vous pouvez ajouter d'autres informations ici si nécessaire. #}
                 </div>
             </div>

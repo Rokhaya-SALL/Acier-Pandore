@@ -12,13 +12,13 @@
                 <h1 class="text-center">Modifier mon profil</h1>
                 {{ form_start(form) }}
                     <div class="form-group">
-                        {{ form_label(form.prenom, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.firstName, 'Prénom', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
                     </div>
                     
                     <div class="form-group mt-3">
-                        {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.lastName, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
                     </div>
 
                     <div class="form-group mt-3">
@@ -27,28 +27,28 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        {{ form_label(form.adresse, 'Adresse', {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.address, 'Adresse', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
                     </div>
 
                     <div class="form-group mt-3">
-                        {{ form_label(form.ville, 'Ville', {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.city, 'Ville', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
                     </div>
 
                     <div class="form-group mt-3">
-                        {{ form_label(form.codePostal, 'Code Postal', {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(form.codePostal, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.postalCode, 'Code Postal', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.postalCode, {'attr': {'class': 'form-control'}}) }}
                     </div>
 
                     <div class="form-group mt-3">
-                        {{ form_label(form.pays, 'Pays', {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(form.pays, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.country, 'Pays', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
                     </div>
 
                     <div class="form-group mt-3">
-                        {{ form_label(form.telephone, 'Téléphone', {'label_attr': {'class': 'form-label'}}) }}
-                        {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.phone, 'Téléphone', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
                     </div>
 
                     <button type="submit" class="btn btn-dark w-100 mt-3">Enregistrer les modifications</button>

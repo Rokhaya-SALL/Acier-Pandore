@@ -31,7 +31,7 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Save product logic here (e.g. using $productRepository)
+           
         }
 
         $search = $request->query->get('search', '');

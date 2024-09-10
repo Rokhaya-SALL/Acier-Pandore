@@ -13,32 +13,32 @@ class ProfileFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('prenom', TextType::class, [
+            ->add('firstName', TextType::class, [
                 'label' => 'Prénom',
             ])
-            ->add('nom', TextType::class, [
+            ->add('lastName', TextType::class, [
                 'label' => 'Nom',
             ])
             ->add('email', TextType::class, [
                 'label' => 'Email',
             ])
-            ->add('adresse', TextType::class, [
+            ->add('address', TextType::class, [
                 'label' => 'Adresse',
                 'required' => false,
             ])
-            ->add('ville', TextType::class, [
+            ->add('city', TextType::class, [
                 'label' => 'Ville',
                 'required' => false,
             ])
-            ->add('codePostal', TextType::class, [
+            ->add('postalCode', TextType::class, [
                 'label' => 'Code Postal',
                 'required' => false,
             ])
-            ->add('pays', TextType::class, [
+            ->add('country', TextType::class, [
                 'label' => 'Pays',
                 'required' => false,
             ])
-            ->add('telephone', TextType::class, [
+            ->add('phone', TextType::class, [
                 'label' => 'Téléphone',
                 'required' => false,
             ]);

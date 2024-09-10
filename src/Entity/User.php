@@ -1,5 +1,7 @@
 <?php
 
+// src/Entity/User.php
+
 namespace App\Entity;
 
 use App\Repository\UserRepository;
@@ -22,25 +24,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $prenom = null;
+    private ?string $firstName = null; // Anciennement 'prenom'
 
     #[ORM\Column(length: 100)]
-    private ?string $nom = null;
+    private ?string $lastName = null; // Anciennement 'nom'
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $adresse = null;
+    private ?string $address = null; // Anciennement 'adresse'
 
     #[ORM\Column(length: 100, nullable: true)]
-    private ?string $ville = null;
+    private ?string $city = null; // Anciennement 'ville'
 
     #[ORM\Column(length: 20, nullable: true)]
-    private ?string $codePostal = null;
+    private ?string $postalCode = null; // Anciennement 'codePostal'
 
     #[ORM\Column(length: 100, nullable: true)]
-    private ?string $pays = null;
+    private ?string $country = null; // Anciennement 'pays'
 
     #[ORM\Column(length: 20, nullable: true)]
-    private ?string $telephone = null;
+    private ?string $phone = null; // Anciennement 'telephone'
 
     #[ORM\Column]
     private array $roles = [];
@@ -74,80 +76,80 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->prenom;
+        return $this->firstName;
     }
 
-    public function setPrenom(string $prenom): static
+    public function setFirstName(string $firstName): static
     {
-        $this->prenom = $prenom;
+        $this->firstName = $firstName;
         return $this;
     }
 
-    public function getNom(): ?string
+    public function getLastName(): ?string
     {
-        return $this->nom;
+        return $this->lastName;
     }
 
-    public function setNom(string $nom): static
+    public function setLastName(string $lastName): static
     {
-        $this->nom = $nom;
+        $this->lastName = $lastName;
         return $this;
     }
 
-    public function getAdresse(): ?string
+    public function getAddress(): ?string
     {
-        return $this->adresse;
+        return $this->address;
     }
 
-    public function setAdresse(?string $adresse): static
+    public function setAddress(?string $address): static
     {
-        $this->adresse = $adresse;
+        $this->address = $address;
         return $this;
     }
 
-    public function getVille(): ?string
+    public function getCity(): ?string
     {
-        return $this->ville;
+        return $this->city;
     }
 
-    public function setVille(?string $ville): static
+    public function setCity(?string $city): static
     {
-        $this->ville = $ville;
+        $this->city = $city;
         return $this;
     }
 
-    public function getCodePostal(): ?string
+    public function getPostalCode(): ?string
     {
-        return $this->codePostal;
+        return $this->postalCode;
     }
 
-    public function setCodePostal(?string $codePostal): static
+    public function setPostalCode(?string $postalCode): static
     {
-        $this->codePostal = $codePostal;
+        $this->postalCode = $postalCode;
         return $this;
     }
 
-    public function getPays(): ?string
+    public function getCountry(): ?string
     {
-        return $this->pays;
+        return $this->country;
     }
 
-    public function setPays(?string $pays): static
+    public function setCountry(?string $country): static
     {
-        $this->pays = $pays;
+        $this->country = $country;
         return $this;
     }
 
-    public function getTelephone(): ?string
+    public function getPhone(): ?string
     {
-        return $this->telephone;
+        return $this->phone;
     }
 
-    public function setTelephone(?string $telephone): static
+    public function setPhone(?string $phone): static
     {
-        $this->telephone = $telephone;
+        $this->phone = $phone;
         return $this;
     }
 

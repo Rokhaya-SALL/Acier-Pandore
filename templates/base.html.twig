@@ -19,11 +19,15 @@
         {% include 'nav.html.twig' %}
     </header>
 
-    {% include 'carrousel.html.twig' %}
+        {% include 'carrousel.html.twig' %}
 
     <div class="container mt-4">
         {% block body %}{% endblock %}
     </div>
+
+    <footer>
+        {% include 'footer.html.twig' %} 
+    </footer>
 
     {% block javascripts %}
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

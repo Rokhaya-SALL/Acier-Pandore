@@ -69,8 +69,8 @@ class AppFixtures extends Fixture
         $admin = new User();
         $admin
             ->setEmail("admin@acier-pandore.com")
-            ->setPrenom("Rokhaya") // Ajout du prénom
-            ->setNom("SALL")  // Ajout du nom
+            ->setFirstName("Rokhaya") // Ajout du prénom
+            ->setLastName("SALL")  // Ajout du nom
             ->setRoles(["ROLE_ADMIN"])
             ->setPassword(
                 $this->hasher->hashPassword($admin, "admin1234")
@@ -81,8 +81,8 @@ class AppFixtures extends Fixture
         $user = new User();
         $user
             ->setEmail("user@test.com")
-            ->setPrenom("Lisa")   // Ajout du prénom
-            ->setNom("Simpson")       // Ajout du nom
+            ->setFirstName("Lisa")   // Ajout du prénom
+            ->setLastName("Simpson")       // Ajout du nom
             ->setPassword(
                 $this->hasher->hashPassword($user, "test1234")
             );
